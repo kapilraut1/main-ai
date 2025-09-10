@@ -5,7 +5,6 @@ import { AutoAwesome, CreateRounded } from "@mui/icons-material";
 import TextInput from "../inputs/TextInput";
 import Button from "../buttons/buttons";
 import { CreatePost, GenerateImageFromPrompt } from "../../api/index";
-import { toast,ToastContainer} from "react-hot-toast";
 const Form = styled.div`
   flex: 1;
   padding: 16px 20px;
@@ -68,7 +67,6 @@ const GenerateImage = ({
           ...post,
           photo: `data:image/jpeg;base64,${res?.data?.photo}`,
         });
-                    toast.success('Successfully added!');
 
         console.log("Generated image (preview):", `data:image/jpeg;base64,${res?.data?.photo}`.slice(0, 100));
 
@@ -86,13 +84,11 @@ const GenerateImage = ({
       .then((res) => {
         navigate("/");
         setcreatePostLoading(false)
-            toast.success('Successfully added!');
 ;
       })
       .catch((error) => {
         setError(error?.response?.data?.message);
         setcreatePostLoading(false);
-        toast.error('Error while creating a post!');
       });
   };
 
@@ -144,7 +140,6 @@ const GenerateImage = ({
           isLoading={createPostLoading}
           onClick={() => createPost()}
         />
-      <ToastContainer position="bottom-right" reverseOrder={false} />
       </Actions>
     </Form>
   );

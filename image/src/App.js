@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';  
 import Navbar from './components/Navbar';
-import {ToastContainer} from "react-hot-toast";
 
 const Container = styled.div`
 width:100%
@@ -32,7 +31,6 @@ function App() {
   <Wrapper>
     <BrowserRouter>
         <Navbar />
-        <ToastContainer position="bottom-right" reverseOrder={false} />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/post' element={<CreatePost/>}/>
